@@ -717,6 +717,57 @@ Porque fueron guardados en un formato binario/opaco (probablemente por el diseñ
 
 ---
 
+## Ficha de evaluación
+
+**Madurez global: 3.3/5**
+
+| Criterio | Nota | Evidencia |
+|---|---:|---|
+| Madurez | 2/5 | Tres generaciones documentadas; solo la primera es pública y no compila tal cual. |
+| Reproducibilidad | 2/5 | El turnero y el notificador no se distribuyen; Autosale carece de formularios compilables. |
+| Documentación | 5/5 | README extenso con protocolos serie, arquitectura por generación y límites de cada etapa. |
+| Honestidad de límites | 5/5 | Explicita qué generación es privada, qué no compila y qué credenciales deben rotarse. |
+| Valor demostrativo | 4/5 | Muestra integración de hardware de pago, RFID, impresión y evolución a web. |
+| Facilidad de despliegue | 2/5 | No hay despliegue público completo; requiere solicitar código y reconstruir Autosale. |
+
+Archivo técnico valioso por su documentación de integraciones y su honestidad, limitado como producto: la mayor parte no es pública y la pieza visible no compila.
+
+## Lo que no funcionó
+
+### Autosale — Formularios opacos
+
+Los formularios principales de Autosale están en un formato opaco que no compila como C# válido en un entorno limpio. Se conservaron como evidencia histórica y el README documenta la arquitectura y los protocolos en lugar de ofrecer un build que no puede garantizar; reconstruirlos requeriría rehacer esa capa.
+
+### Turnero — SSE atado a un proceso
+
+El turnero usa colas en memoria para enviar eventos SSE, de modo que solo funciona con un proceso. Con varios workers, cada cliente queda conectado a una instancia distinta y pierde eventos. El README documenta la limitación y propone un bus externo, como Redis o LISTEN/NOTIFY de PostgreSQL.
+
+### Notificador — SMTP sin TLS ni login
+
+El notificador abre una conexión SMTP en el puerto 587, pero no ejecuta starttls ni autenticación; el envío real queda como esqueleto y el modo dry-run es el camino probado. El README indica completar TLS, credenciales y reintentos antes de usarlo en producción, sin afirmar que ese flujo esté terminado.
+
+### Turnero — CSRF artesanal
+
+La protección CSRF se apoya en JSON, el encabezado X-Requested-With y la comprobación de origin y referer, sin token formal por sesión. Es una barrera razonable para el flujo de turnos, pero el README la describe como artesanal y no como equivalente a un esquema estándar; migrarla queda pendiente.
+
+## Preguntas típicas
+
+**¿Qué es este proyecto?**
+
+Un archivo de tres generaciones de autoatención: Autosale en C# WinForms con Transbank, RFID y Epson; un turnero Flask con SSE y QR; y un notificador SMTP en Python.
+
+**¿Qué parte está disponible?**
+
+Solo Autosale está en el repositorio público; el turnero y el notificador se solicitan por privado, y los formularios principales de Autosale están en un formato opaco que no compila tal cual.
+
+**¿Qué límites técnicos se documentan?**
+
+El turnero usa colas SSE en memoria y solo funciona con un proceso, el notificador no completa TLS ni login SMTP, y la protección CSRF es artesanal.
+
+**¿Qué se puede reutilizar?**
+
+Los protocolos serie de Transbank y RFID, el esquema de turnos con QR y las decisiones de arquitectura; hay que rotar credenciales y el certificado temporal antes de cualquier uso.
+
 ## Documentación adicional
 
 | Documento | Contenido |
