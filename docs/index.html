@@ -205,6 +205,7 @@ h2{font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.04em;margin:
 
 </style>
 <link rel="stylesheet" href="assets/community.css?v=1">
+<link href="rec/player.css?v=1" rel="stylesheet"/>
 </head>
 <body>
 <header class="nav"><div class="wrap nav-in">
@@ -214,7 +215,8 @@ h2{font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.04em;margin:
     <a href="#versiones">Versiones</a>
       <a href="#acceso">Acceso</a>
     <a href="#stack">Stack</a>
-    <a href="#docs">Docs</a>
+    <a href="#video">Video</a>
+<a href="#docs">Docs</a>
     <a href="#comunidad">Comunidad</a>
     <a class="btn btn-ghost" style="padding:9px 15px" href="/iot/">← IoT</a>
   </nav>
@@ -238,7 +240,46 @@ h2{font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.04em;margin:
   </div>
 </div></section>
 
-<section class="stats"><div class="wrap stats-grid"><div class="stat"><div class="stat-num">3</div><div class="stat-label">versiones</div></div><div class="stat"><div class="stat-num">1</div><div class="stat-label">pública</div></div><div class="stat"><div class="stat-num">2</div><div class="stat-label">privadas</div></div><div class="stat"><div class="stat-num">1</div><div class="stat-label">licencia</div></div></div></section><section class="section tight"><div class="wrap"><div class="section-head reveal"><div class="kicker">El concepto</div><h2>Qué es y por qué existe</h2></div><div class="rich reveal"><p>Archivo de evolución de un sistema de autoatención para tiendas: tres generaciones que van desde una aplicación de escritorio en C# con lector RFID, impresora Epson y terminal Transbank, hasta un turnero web en Flask y un notificador de correo en Python. Documenta decisiones de integración, protocolos serie y el paso de un cliente pesado a una arquitectura web.</p><p>Solo la primera generación, Autosale, está incluida en el repositorio público; el turnero y el notificador se solicitan por privado. Por eso el valor principal es el análisis técnico: el README explica qué se conservó, qué falta y por qué los formularios originales no permiten una compilación reproducible. Es material de referencia para quien integra hardware de punto de venta, no un kit listo para desplegar.</p></div></div></section><section class="section tight"><div class="wrap"><div class="section-head reveal"><div class="kicker">El proyecto en detalle</div><h2>Documentación preservada</h2><p class="section-sub">El README original, completo y en su contexto.</p></div><div class="detail rich reveal">
+<section class="stats"><div class="wrap stats-grid"><div class="stat"><div class="stat-num">3</div><div class="stat-label">versiones</div></div><div class="stat"><div class="stat-num">1</div><div class="stat-label">pública</div></div><div class="stat"><div class="stat-num">2</div><div class="stat-label">privadas</div></div><div class="stat"><div class="stat-num">1</div><div class="stat-label">licencia</div></div></div></section>
+<section class="section tight rec-section" id="video" style="--accent:#2E7DFF;--accent2:#14F195">
+<div class="wrap">
+<div class="rec-kicker">REC · VIDEO · 3:14</div>
+<h2 class="rec-h2">Autoatención: de un tótem de venta a una plataforma de turnos</h2>
+<p class="rec-lead">Recorrido por Autosale, el tótem de autoatención en C#: lectura de tarjeta, venta con Transbank por serial, persistencia y sincronización entre sedes.</p>
+<div class="rec-banner">
+<span class="rec-banner-icon">📋</span>
+<strong>Puedes copiar y pegar los comandos del video desde el video !!!</strong>
+<span>Pausá, seleccioná el texto de la terminal y copiá.</span>
+</div>
+<div class="rec-shell">
+<div class="rec-bar"><i></i><i></i><i></i><span class="rec-title">Autoatención: de un tótem de venta a una plataforma de turnos · asciinema</span><span class="rec-rec"><b></b>REC</span></div>
+<div class="rec-screen-wrap">
+<div class="rec-screen" id="rec-screen"></div>
+<div class="rec-poster" id="rec-poster">
+<div class="rec-kicker">ASCIINEMA · 3:14</div>
+<h3>Autoatención: de un tótem de venta a una plataforma de turnos</h3>
+<p>Recorrido por Autosale, el tótem de autoatención en C#: lectura de tarjeta, venta con Transbank por serial, persistencia y sincronización entre sedes.</p>
+<div class="rec-poster-meta">autoatencion · código real</div>
+<button class="rec-btn rec-primary" id="rec-start" type="button">▶ Reproducir</button>
+</div>
+</div>
+<div class="rec-controls">
+<button class="rec-btn rec-primary" id="rec-play" type="button">▶ Reproducir</button>
+<button class="rec-btn" id="rec-restart" type="button">↺ Reiniciar</button>
+<input class="rec-progress" id="rec-range" type="range" min="0" max="1000" value="0" aria-label="Progreso"/>
+<span class="rec-time" id="rec-time">0:00 / 3:14</span>
+<select class="rec-speed" id="rec-speed" aria-label="Velocidad"><option value="1">1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2×</option></select>
+<button class="rec-btn" id="rec-full" type="button" title="Pantalla completa">⛶</button>
+<button class="rec-btn" id="rec-copy" type="button">⧉ Copiar comandos</button>
+<a class="rec-download" href="rec/autoatencion.cast" download>descargar .cast</a>
+</div>
+</div>
+<p class="rec-note">Fragmentos literales de versions/Autosale. Varios formularios están en formato opaco y no compilan tal cual; no hay integración productiva con Transbank ni credenciales en el repositorio.</p>
+<div class="rec-chapters"><span class="rec-chip"><b>0:06</b> EL PROBLEMA</span><span class="rec-chip"><b>0:22</b> TÓTEM</span><span class="rec-chip"><b>0:37</b> LECTURA RFID</span><span class="rec-chip"><b>0:52</b> CLIENTE Y SALDO</span><span class="rec-chip"><b>1:07</b> CONFIRMACIÓN</span><span class="rec-chip"><b>1:20</b> PROTOCOLO SERIAL</span><span class="rec-chip"><b>1:35</b> VENTA</span><span class="rec-chip"><b>1:50</b> RESPUESTA</span><span class="rec-chip"><b>2:04</b> PERSISTENCIA</span><span class="rec-chip"><b>2:18</b> SINCRONIZACIÓN</span><span class="rec-chip"><b>2:36</b> JOBS</span><span class="rec-chip"><b>2:52</b> ERRORES</span></div>
+</div>
+</section>
+
+<section class="section tight"><div class="wrap"><div class="section-head reveal"><div class="kicker">El concepto</div><h2>Qué es y por qué existe</h2></div><div class="rich reveal"><p>Archivo de evolución de un sistema de autoatención para tiendas: tres generaciones que van desde una aplicación de escritorio en C# con lector RFID, impresora Epson y terminal Transbank, hasta un turnero web en Flask y un notificador de correo en Python. Documenta decisiones de integración, protocolos serie y el paso de un cliente pesado a una arquitectura web.</p><p>Solo la primera generación, Autosale, está incluida en el repositorio público; el turnero y el notificador se solicitan por privado. Por eso el valor principal es el análisis técnico: el README explica qué se conservó, qué falta y por qué los formularios originales no permiten una compilación reproducible. Es material de referencia para quien integra hardware de punto de venta, no un kit listo para desplegar.</p></div></div></section><section class="section tight"><div class="wrap"><div class="section-head reveal"><div class="kicker">El proyecto en detalle</div><h2>Documentación preservada</h2><p class="section-sub">El README original, completo y en su contexto.</p></div><div class="detail rich reveal">
 <blockquote>
 <p><strong>De un tótem de venta con Transbank a una plataforma de turnos con QR, SSE y notificación por correo.</strong>
 Repositorio de estudio que reúne, con fines de portafolio, tres implementaciones sucesivas de software para autoatención: <strong>Autosale</strong>, <strong>turnero</strong> y <strong>notificador</strong>.</p>
@@ -1116,5 +1157,7 @@ Porque fueron guardados en un formato binario/opaco (probablemente por el diseñ
 <script>window.PORTFOLIO_COMMUNITY={account:"jmadasme",repo:"autoatencion",coinNamespace:"jmadasme-autoatencion-coins-v1",faqs:[{"q": "¿Cuál es la versión más nueva?", "a": "`turnero` es la evolución web; `notificador` la complementa. `Autosale` es la primera versión y se conserva como referencia."}, {"q": "¿Autosale sigue en uso?", "a": "Se conserva como versión histórica. Para una instalación nueva conviene partir de `turnero`."}, {"q": "¿Transbank está integrado?", "a": "Autosale incluye la integración, pero requiere credenciales y validación con el proveedor."}, {"q": "¿Cómo se comunican turnero y notificador?", "a": "Notificador lee la base SQLite de Kiosco Virtual y envía el aviso por correo."}, {"q": "¿Es multilocal?", "a": "No. El diseño es para un flujo local; multilocal requiere extender el modelo y la configuración."}]};</script>
 <script src="assets/community.js?v=2" defer></script>
 
+<script defer src="rec/autoatencion.cast.js?v=1"></script>
+<script defer src="rec/player.js?v=1"></script>
 </body>
 </html>
